@@ -3,81 +3,79 @@
 
 <head>
     <meta name="description" content="Tienda online de venta de prendas tejidas.">
-    <title>Tienda de Tejidos - Inicio</title>
+    <title>Afterglow</title>
     <!-- Archivos CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
-        <!-- Cabecera del sitio -->
-        <img src="img/AFTERGLOW_LOGO.png">
+        <div class="header-container">
+            <!-- Cabecera del sitio -->
+            <img src="img/AFTERGLOW_LOGO.png" alt="Logo Afterglow">
 
-        <h1>Bienvenidos a Afterglow</h1>
-        <nav>
-            <!-- Menú de navegación -->
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-            </ul>
-        </nav>
+            <h1>Bienvenidos a Afterglow</h1>
+            <nav>
+                <!-- Menú de navegación -->
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <!-- Sección principal de la página -->
-        <section id="inicio">
-            <!-- Sección de bienvenida -->
+        <section id="inicio" class="section-inicio">
             <h2>Todas las prendas que necesitas en un solo lugar</h2>
-              <!-- Sección de productos destacados -->
             <h2>Productos Destacados</h2>
-           
-                <tbody>
-                    <tr>
-                        <td><img src="img/Sweater_1.jpeg" alt="Sweater rainbow"></td>
-                        <td>Sweater Rainbow</td>
-                        <td>$15000.00</td>
-                    </tr>
-
-                    <tr>
-                        <td><img src="img/Sweater_2.jpeg" alt="Sweater Molly"></td>
-                        <td>Sweater Molly</td>
-                        <td>$17000.00</td>
-                    </tr>
-                    <!-- Agrega más productos aquí -->
-                </tbody>
+            <div class="product-container">
+                <div class="product-item">
+                    <img src="img/Sweater_1.jpeg" alt="Sweater Rainbow">
+                    <p>Sweater Rainbow</p>
+                    <p>$15000.00</p>
+                </div>
+                <div class="product-item">
+                    <img src="img/Sweater_2.jpeg" alt="Sweater Molly">
+                    <p>Sweater Molly</p>
+                    <p>$17000.00</p>
+                </div>
+                <!-- Agrega más productos aquí -->
+            </div>
         </section>
-
-        <section id="productos">
-            <h2>Pendas disponibles</h2>
-
-            <tr>
-                <td><img src="img/Sweater_3 (Orange).jpeg" alt="Square Orange"></td>
-                <td>Square Orange</td>
-                <td>$20000.00</td>
-            </tr>
-            <tr>
-                <td><img src="img/Sweater_4 (Blue).jpeg" alt="Square Blue"></td>
-                <td>Square Blue</td>
-                <td>$20000.00</td>
-            </tr>
-            <tr>
-                <td><img src="img/Sweater_5 (Pink).jpeg" alt="Square Pink"></td>
-                <td>Square Pink</td>
-                <td>$20000.00</td>
-            </tr>
-            <tr>
-                <td><img src="img/Sweater_6 (Red).jpeg" alt="Square Red"></td>
-                <td>Square Red</td>
-                <td>$20000.00</td>
-            </tr>
-            
+        
+        <section id="productos" class="section-productos">
+            <h2>Prendas Disponibles</h2>
+            <div class="available-products">
+                <div class="available-product-item">
+                    <img src="img/Sweater_3 (Orange).jpeg" alt="Square Orange">
+                    <p>Square Orange</p>
+                    <p>$20000.00</p>
+                </div>
+                <div class="available-product-item">
+                    <img src="img/Sweater_4 (Blue).jpeg" alt="Square Blue">
+                    <p>Square Blue</p>
+                    <p>$20000.00</p>
+                </div>
+                <div class="available-product-item">
+                    <img src="img/Sweater_5 (Pink).jpeg" alt="Square Pink">
+                    <p>Square Pink</p>
+                    <p>$20000.00</p>
+                </div>
+                <div class="available-product-item">
+                    <img src="img/Sweater_6 (Red).jpeg" alt="Square Red">
+                    <p>Square Red</p>
+                    <p>$20000.00</p>
+                </div>
+            </div>
         </section>
-
-        <section id="contacto">
+        
+        <section id="contacto" class="section-contacto">
             <!-- Sección de contacto -->
-            <h2>Ante cualquier duda hablanos</h2>
+            <h2>Ante cualquier duda, hablanos</h2>
             <form action="enviar_mensaje.php" method="post">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -92,10 +90,10 @@
             </form>
         </section>
 
-        <section id="nosotros">
+        <section id="nosotros" class="section-nosotros">
             <!-- Sección sobre nosotros -->
             <h2>Sobre Nosotros</h2>
-            <p>Somos una tienda dedicada a ofrecer los mejores tejidos para tus proyectos. Con años de experiencia en el sector, garantizamos calidad y buen servicio.</p>
+            <p>Somos una tienda dedicada a ofrecer los mejores tejidos para vestirlos como mas quieras.</p>
         </section>
     </main>
 
