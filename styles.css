@@ -46,10 +46,11 @@ header nav ul {
     list-style: none; 
     padding: 0; 
     margin: 0; 
+    display: flex; 
+    justify-content: center; 
 }
 
 header nav ul li {
-    display: inline; 
     margin-right: 20px; 
 }
 
@@ -60,24 +61,17 @@ header nav ul li a {
 }
 
 /* Estilo para las secciones con colores */
-.section-inicio {
-    background-color: #abb9ac; 
-}
-
-.section-productos {
-    background-color: #abb9ac; 
-}
-
-.section-contacto {
-    background-color: #abb9ac; 
-}
-
+.section-inicio,
+.section-productos,
+.section-contacto,
 .section-nosotros {
     background-color: #abb9ac; 
+    padding: 20px;
 }
 
 main {
-    padding: 20px;
+    display: grid; 
+    grid-template-columns: 1fr; 
     max-width: 1200px;
     margin: auto;
 }
@@ -89,18 +83,6 @@ section {
 section img {
     max-width: 100%;
     height: auto;
-}
-
-/* Estilo para las tablas */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table td, table th {
-    padding: 10px;
-    border: 10px solid #F16D95;
 }
 
 /* Estilo para el formulario de contacto */
@@ -147,26 +129,22 @@ footer {
     width: 100%;
 }
 
-/* Estilo general para el contenedor de productos destacados */
+/* Contenedor de productos destacados */
 .product-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px; 
-    justify-content: center; 
     padding: 20px;
 }
 
 /* Estilo para cada item del producto destacado */
 .product-item {
-    flex: 1 1 calc(25% - 20px); 
-    box-sizing: border-box;
     text-align: center;
-    max-width: 200px; 
-    padding: 10px;
     background-color: #90aa93; 
     border: 1px solid #719275; 
     border-radius: 8px; 
     box-shadow: 0 2px 4px rgba(38, 90, 62, 0.1); 
+    padding: 10px;
 }
 
 /* Estilo para las imágenes del producto */
@@ -182,24 +160,10 @@ footer {
     font-size: 16px;
 }
 
-
-/* Asegúrate de que el contenedor se vea bien en pantallas pequeñas */
-@media (max-width: 768px) {
-    .product-item {
-        flex: 1 1 calc(50% - 20px); 
-    }
-}
-
-@media (max-width: 480px) {
-    .product-item {
-        flex: 1 1 100%; 
-    }
-}
-
-/* Estilo general para el contenedor de productos disponibles */
+/* Contenedor de productos disponibles */
 .available-products {
-    display: flex;
-    flex-direction: column; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
     gap: 20px; 
     padding: 20px;
 }
@@ -224,17 +188,4 @@ footer {
 .available-product-item p {
     margin: 5px 0;
     font-size: 18px; 
-}
-
-/* Asegúrate de que el contenedor se vea bien en pantallas más pequeñas */
-@media (max-width: 768px) {
-    .available-product-item {
-        max-width: 90%; 
-    }
-}
-
-@media (max-width: 480px) {
-    .available-product-item {
-        max-width: 100%; 
-    }
 }
