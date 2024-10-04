@@ -6,17 +6,20 @@
     <title>Afterglow</title>
     <!-- Archivos CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <header>
         <div class="header-container">
-            <!-- Cabecera del sitio -->
             <img src="img/AFTERGLOW_LOGO.png" alt="Logo Afterglow">
-
             <h1>Bienvenidos a Afterglow</h1>
             <nav>
-                <!-- Menú de navegación -->
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#productos">Productos</a></li>
@@ -32,50 +35,66 @@
         <section id="inicio" class="section-inicio">
             <h2>Todas las prendas que necesitas en un solo lugar</h2>
             <h2>Productos Destacados</h2>
-            <div class="product-container">
-                <div class="product-item">
-                    <img src="img/Sweater_1.jpeg" alt="Sweater Rainbow">
-                    <p>Sweater Rainbow</p>
-                    <p>$15000.00</p>
+
+            <!-- Carrusel Bootstrap para Productos Destacados -->
+            <div id="carouselProductosDestacados" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/Sweater_1.jpeg" class="d-block w-100" alt="Sweater Rainbow">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Sweater Rainbow</h5>
+                            <p>$15000.00</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Sweater_2.jpeg" class="d-block w-100" alt="Sweater Molly">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Sweater Molly</h5>
+                            <p>$17000.00</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-item">
-                    <img src="img/Sweater_2.jpeg" alt="Sweater Molly">
-                    <p>Sweater Molly</p>
-                    <p>$17000.00</p>
-                </div>
-                <!-- Agrega más productos aquí -->
+                <a class="carousel-control-prev" href="#carouselProductosDestacados" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselProductosDestacados" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
             </div>
         </section>
         
         <section id="productos" class="section-productos">
             <h2>Prendas Disponibles</h2>
-            <div class="available-products">
-                <div class="available-product-item">
-                    <img src="img/Sweater_3 (Orange).jpeg" alt="Square Orange">
-                    <p>Square Orange</p>
-                    <p>$20000.00</p>
-                </div>
-                <div class="available-product-item">
-                    <img src="img/Sweater_4 (Blue).jpeg" alt="Square Blue">
-                    <p>Square Blue</p>
-                    <p>$20000.00</p>
-                </div>
-                <div class="available-product-item">
-                    <img src="img/Sweater_5 (Pink).jpeg" alt="Square Pink">
-                    <p>Square Pink</p>
-                    <p>$20000.00</p>
-                </div>
-                <div class="available-product-item">
-                    <img src="img/Sweater_6 (Red).jpeg" alt="Square Red">
-                    <p>Square Red</p>
-                    <p>$20000.00</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 available-product-item">
+                        <img src="img/Sweater_3 (Orange).jpeg" alt="Square Orange" class="img-fluid">
+                        <p>Square Orange</p>
+                        <p>$20000.00</p>
+                    </div>
+                    <div class="col-md-4 available-product-item">
+                        <img src="img/Sweater_4 (Blue).jpeg" alt="Square Blue" class="img-fluid">
+                        <p>Square Blue</p>
+                        <p>$20000.00</p>
+                    </div>
+                    <div class="col-md-4 available-product-item">
+                        <img src="img/Sweater_5 (Pink).jpeg" alt="Square Pink" class="img-fluid">
+                        <p>Square Pink</p>
+                        <p>$20000.00</p>
+                    </div>
+                    <div class="col-md-4 available-product-item">
+                        <img src="img/Sweater_6 (Red).jpeg" alt="Square Red" class="img-fluid">
+                        <p>Square Red</p>
+                        <p>$20000.00</p>
+                    </div>
                 </div>
             </div>
         </section>
         
         <section id="contacto" class="section-contacto">
-            <!-- Sección de contacto -->
-            <h2>Ante cualquier duda, hablanos</h2>
+            <h2>Ante cualquier duda, háblanos</h2>
             <form action="enviar_mensaje.php" method="post">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -91,14 +110,12 @@
         </section>
 
         <section id="nosotros" class="section-nosotros">
-            <!-- Sección sobre nosotros -->
             <h2>Sobre Nosotros</h2>
-            <p>Somos una tienda dedicada a ofrecer los mejores tejidos para vestirlos como mas quieras.</p>
+            <p>Somos una tienda dedicada a ofrecer los mejores tejidos para vestirlos como más quieras.</p>
         </section>
     </main>
 
     <footer>
-        <!-- Pie de página -->
         <p>&copy; 2024 Tienda de Tejidos. Todos los derechos reservados.</p>
     </footer>
 
