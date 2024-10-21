@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tienda online de venta de prendas tejidas.">
     <title>Afterglow</title>
-    <!-- Archivos CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- jQuery y Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
 </head>
 
 <body>
@@ -31,23 +29,26 @@
     </header>
 
     <main>
-        <!-- Sección principal de la página -->
-        <section id="inicio" class="section-inicio">
+        <section id="inicio" class="section-inicio text-center">
             <h2>Todas las prendas que necesitas en un solo lugar</h2>
             <h2>Productos Destacados</h2>
 
-            <!-- Carrusel Bootstrap para Productos Destacados -->
+            <div class="video-container mb-4">
+                <h2 class="video-title">Knitwear Lover</h2>
+                <iframe src="https://www.youtube.com/embed/1sqTG9rSJTk?si=yOTUlisG1SqYSLQ0" frameborder="0" allowfullscreen></iframe>
+            </div>
+            
             <div id="carouselProductosDestacados" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="img/Sweater_1.jpeg" class="d-block w-100" alt="Sweater Rainbow">
+                        <img src="img/Sweater_1.jpeg" alt="Sweater Rainbow">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Sweater Rainbow</h5>
                             <p>$15000.00</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="img/Sweater_2.jpeg" class="d-block w-100" alt="Sweater Molly">
+                        <img src="img/Sweater_2.jpeg" alt="Sweater Molly">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Sweater Molly</h5>
                             <p>$17000.00</p>
@@ -64,48 +65,59 @@
                 </a>
             </div>
         </section>
-        
+
         <section id="productos" class="section-productos">
             <h2>Prendas Disponibles</h2>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 available-product-item">
-                        <img src="img/Sweater_3 (Orange).jpeg" alt="Square Orange" class="img-fluid">
-                        <p>Square Orange</p>
-                        <p>$20000.00</p>
+                    <div class="col-md-4 mb-4">
+                        <div class="available-product-item text-center">
+                            <img src="img/Sweater_3 (Orange).jpeg" alt="Square Orange" class="img-fluid">
+                            <p>Square Orange</p>
+                            <p>$20000.00</p>
+                        </div>
                     </div>
-                    <div class="col-md-4 available-product-item">
-                        <img src="img/Sweater_4 (Blue).jpeg" alt="Square Blue" class="img-fluid">
-                        <p>Square Blue</p>
-                        <p>$20000.00</p>
+                    <div class="col-md-4 mb-4">
+                        <div class="available-product-item text-center">
+                            <img src="img/Sweater_4 (Blue).jpeg" alt="Square Blue" class="img-fluid">
+                            <p>Square Blue</p>
+                            <p>$20000.00</p>
+                        </div>
                     </div>
-                    <div class="col-md-4 available-product-item">
-                        <img src="img/Sweater_5 (Pink).jpeg" alt="Square Pink" class="img-fluid">
-                        <p>Square Pink</p>
-                        <p>$20000.00</p>
+                    <div class="col-md-4 mb-4">
+                        <div class="available-product-item text-center">
+                            <img src="img/Sweater_5 (Pink).jpeg" alt="Square Pink" class="img-fluid">
+                            <p>Square Pink</p>
+                            <p>$20000.00</p>
+                        </div>
                     </div>
-                    <div class="col-md-4 available-product-item">
-                        <img src="img/Sweater_6 (Red).jpeg" alt="Square Red" class="img-fluid">
-                        <p>Square Red</p>
-                        <p>$20000.00</p>
+                    <div class="col-md-4 mb-4">
+                        <div class="available-product-item text-center">
+                            <img src="img/Sweater_6 (Red).jpeg" alt="Square Red" class="img-fluid">
+                            <p>Square Red</p>
+                            <p>$20000.00</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <section id="contacto" class="section-contacto">
             <h2>Ante cualquier duda, háblanos</h2>
             <form action="enviar_mensaje.php" method="post">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                
-                <button type="submit">Enviar</button>
+                <fieldset>
+                    <legend>Contacto</legend>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                    
+                    <button type="submit">Enviar</button>
+                </fieldset>
             </form>
         </section>
 
@@ -120,5 +132,4 @@
     </footer>
 
 </body>
-
 </html>
