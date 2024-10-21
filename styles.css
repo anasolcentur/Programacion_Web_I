@@ -38,26 +38,28 @@ header h1 {
     color: #c1325d;
 }
 
-header nav {
-    margin-top: 10px; 
+/* Estilos personalizados para la navbar */
+.custom-navbar {
+    background-color: #A4B6A6;
 }
 
-header nav ul {
-    list-style: none; 
-    padding: 0; 
-    margin: 0; 
-    display: flex; 
-    justify-content: center; 
+.navbar-nav {
+    display: flex;
+    justify-content: center; /* Centrar los elementos de la lista */
+    width: 100%; /* Asegurar que ocupe todo el ancho */
 }
 
-header nav ul li {
-    margin-right: 20px; 
+.custom-nav-link {
+    color: #F16D95 !important; /* Color de los enlaces */
+    padding: 10px 15px; /* Padding para que se asemeje al estilo anterior */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Alineación de texto al centro */
+    transition: background-color 0.3s, color 0.3s; /* Suaviza la transición de color */
 }
 
-header nav ul li a {
-    text-decoration: none; 
-    color: #CD5A7D; 
-    font-size: 1.5em; 
+.custom-nav-link:hover {
+    background-color: #c1325d; /* Color de fondo más oscuro para el hover */
+    color: white; /* Color del texto al pasar el mouse */
 }
 
 .section-inicio,
