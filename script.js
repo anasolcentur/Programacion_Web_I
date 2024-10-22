@@ -15,7 +15,7 @@ function validarFormulario(event) {
     // Validación simple
     if (nombre && email && mensaje) {
         alert(`Gracias ${nombre}, tu mensaje ha sido enviado.`);
-        /
+        
     } else {
         alert("Por favor, completa todos los campos.");
     }
