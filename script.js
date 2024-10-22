@@ -1,12 +1,16 @@
 // Función para capturar el nombre del usuario
 function capturarNombre() {
     const nombre = prompt("Por favor, ingresa tu nombre:");
-    alert(`Hola, ${nombre}! Bienvenido a Afterglow.`);
+    if (nombre) {
+        alert(`Hola, ${nombre}! Bienvenido a Afterglow.`);
+    } else {
+        alert("No ingresaste un nombre.");
+    }
 }
 
 // Función para validar el formulario de contacto
 function validarFormulario(event) {
-    event.preventDefault(); 
+    event.preventDefault(); // Previene el envío del formulario
 
     const nombre = document.getElementById('nombre').value;
     const email = document.getElementById('email').value;
@@ -22,7 +26,7 @@ function validarFormulario(event) {
 }
 
 
-document.getElementById('contactForm').addEventListener('submit', validarFormulario);
-
-
-window.onload = capturarNombre;
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('form').addEventListener('submit', validarFormulario);
+    capturarNombre(); 
+});
