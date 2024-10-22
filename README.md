@@ -25,3 +25,4 @@ La **Tienda de Tejidos “Afterglow”** es un proyecto de e-commerce diseñado 
 - **Formulario de Contacto:** Permitir a los usuarios enviar consultas y mensajes al equipo de soporte.
 - **Información sobre la Tienda:** Página con detalles sobre la tienda, incluyendo su historia y misión.
 - **Responsividad:** Diseño adaptable a diferentes dispositivos (móviles, tabletas y escritorios) para mejorar la experiencia del usuario.
+
