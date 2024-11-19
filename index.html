@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a class="nav-link custom-nav-link" href="#nosotros">Nosotros</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link" href="#" id="verCarrito">Ver Carrito <span id="carritoCantidad">0</span></a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -89,6 +92,7 @@
                             <img src="img/Sweater_3 (Orange).jpeg" alt="Square Orange" class="img-fluid">
                             <p>Square Orange</p>
                             <p>$20000.00</p>
+                            <button class="agregar-carrito">Agregar al carrito</button>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -96,6 +100,7 @@
                             <img src="img/Sweater_4 (Blue).jpeg" alt="Square Blue" class="img-fluid">
                             <p>Square Blue</p>
                             <p>$20000.00</p>
+                            <button class="agregar-carrito">Agregar al carrito</button>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -103,6 +108,7 @@
                             <img src="img/Sweater_5 (Pink).jpeg" alt="Square Pink" class="img-fluid">
                             <p>Square Pink</p>
                             <p>$20000.00</p>
+                            <button class="agregar-carrito">Agregar al carrito</button>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -110,10 +116,19 @@
                             <img src="img/Sweater_6 (Red).jpeg" alt="Square Red" class="img-fluid">
                             <p>Square Red</p>
                             <p>$20000.00</p>
+                            <button class="agregar-carrito">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section id="carrito" class="section-carrito" style="display:none;">
+            <h2>Carrito de Compras</h2>
+            <div id="carritoContenido"></div>
+            <p><strong>Total:</strong> $<span id="totalCarrito">0</span></p>
+            <button id="vaciarCarrito">Vaciar Carrito</button>
+            <button id="finalizarCompra">Finalizar Compra</button>
         </section>
 
         <section id="contacto" class="section-contacto">
@@ -123,13 +138,13 @@
                     <legend>Contacto</legend>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
-                    
+
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
-                    
+
                     <label for="mensaje">Mensaje:</label>
                     <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                    
+
                     <button type="submit">Enviar</button>
                 </fieldset>
             </form>
@@ -147,3 +162,4 @@
 
 </body>
 </html>
+
