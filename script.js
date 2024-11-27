@@ -1,105 +1,59 @@
-// Definición de un array para almacenar los productos disponibles
+// Importa la clase Carrito desde el archivo Carrito.js
+import { Carrito } from './Carrito.js';
+
+// Crear una instancia del carrito
+let carrito = new Carrito();
+
+// Definición de productos disponibles
 let productos = [
-    {
-        nombre: "Sweater Rainbow",
-        precio: 15000,
-        cantidad: 10
-    },
-    {
-        nombre: "Sweater Molly",
-        precio: 17000,
-        cantidad: 10
-    },
-    {
-        nombre: "Square Orange",
-        precio: 20000,
-        cantidad: 10
-    },
-    {
-        nombre: "Square Blue",
-        precio: 20000,
-        cantidad: 10
-    },
-    {
-        nombre: "Square Pink",
-        precio: 20000,
-        cantidad: 10
-    },
-    {
-        nombre: "Square Red",
-        precio: 20000,
-        cantidad: 10
-    }
+    { nombre: "Sweater Rainbow", precio: 15000, cantidad: 10 },
+    { nombre: "Sweater Molly", precio: 17000, cantidad: 10 },
+    { nombre: "Square Orange", precio: 20000, cantidad: 10 },
+    { nombre: "Square Blue", precio: 20000, cantidad: 10 },
+    { nombre: "Square Pink", precio: 20000, cantidad: 10 },
+    { nombre: "Square Red", precio: 20000, cantidad: 10 }
 ];
-
-// Definición de un objeto carrito con propiedades y métodos
-let carrito = {
-    productos: [],
-    total: 0,
-
-    // Método para agregar un producto al carrito
-    agregarProducto: function(producto) {
-        let encontrado = false;
-        for (let i = 0; i < this.productos.length; i++) {
-            if (this.productos[i].nombre === producto.nombre) {
-                this.productos[i].cantidad++;
-                encontrado = true;
-                break;
-            }
-        }
-        if (!encontrado) {
-            this.productos.push({ ...producto, cantidad: 1 });
-        }
-        this.actualizarTotal();
-    },
-
-    // Método para eliminar un producto del carrito
-    eliminarProducto: function(nombreProducto) {
-        for (let i = 0; i < this.productos.length; i++) {
-            if (this.productos[i].nombre === nombreProducto) {
-                this.productos.splice(i, 1);
-                break;
-            }
-        }
-        this.actualizarTotal();
-    },
-
-    // Método para vaciar el carrito
-    vaciarCarrito: function() {
-        this.productos = [];
-        this.total = 0;
-    },
-
-    // Método para calcular el total del carrito
-    actualizarTotal: function() {
-        this.total = 0;
-        for (let i = 0; i < this.productos.length; i++) {
-            this.total += this.productos[i].precio * this.productos[i].cantidad;
-        }
-    },
-
-    // Método para mostrar el contenido del carrito
-    mostrarCarrito: function() {
-        console.log("Contenido del carrito:");
-        for (let i = 0; i < this.productos.length; i++) {
-            console.log(`${this.productos[i].nombre} x${this.productos[i].cantidad} - $${this.productos[i].precio * this.productos[i].cantidad}`);
-        }
-        console.log(`Total: $${this.total}`);
-    }
-};
 
 // Función para mostrar todos los productos disponibles
 function mostrarProductos() {
     console.log("Productos disponibles:");
-    for (let i = 0; i < productos.length; i++) {
-        console.log(`${productos[i].nombre} - $${productos[i].precio}`);
+    productos.forEach(producto => {
+        console.log(`${producto.nombre} - $${producto.precio}`);
+    });
+}
+
+// Función para agregar productos al carrito
+function agregarAlCarrito(producto) {
+    carrito.agregarProducto(producto);
+    alert(`${producto.nombre} ha sido agregado al carrito.`);
+}
+
+// Función para realizar la compra y obtener el nombre y correo del usuario
+function realizarCompra() {
+    // Entrada de datos con prompt para obtener nombre y correo
+    const nombre = prompt("Ingresa tu nombre:");
+    const email = prompt("Ingresa tu correo electrónico:");
+
+    // Validación simple para asegurar que el usuario ingresó ambos datos
+    if (nombre && email) {
+        console.log(`¡Gracias por tu compra, ${nombre}! Te hemos enviado un correo de confirmación a ${email}.`);
+        carrito.mostrarCarrito(); // Muestra el contenido del carrito
+        console.log(`El total de tu compra es: $${carrito.total}`);
+        alert(`¡Gracias por tu compra, ${nombre}! Te hemos enviado un correo de confirmación a ${email}.`);
+    } else {
+        alert("Por favor, completa ambos campos.");
     }
 }
 
-// Función para simular la compra
-function realizarCompra() {
-    console.log("Realizando compra...");
-    carrito.mostrarCarrito();
-    console.log("Gracias por tu compra!");
-}
+// Agregar productos al carrito de ejemplo
+agregarAlCarrito(productos[0]);  // Agrega un producto al carrito
+agregarAlCarrito(productos[1]);  // Agrega otro producto al carrito
+
+// Muestra los productos disponibles
+mostrarProductos();
+
+// Realiza la compra (esto sería una simulación)
+realizarCompra();
+
+
 
