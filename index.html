@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
-    <script src="script.js" defer></script> 
+    <script src="script.js" type="module" defer></script>
 </head>
 
 <body>
@@ -19,7 +20,8 @@
             <img src="img/AFTERGLOW_LOGO.png" alt="Logo Afterglow">
             <h1>Bienvenidos a Afterglow</h1>
             <nav class="navbar navbar-expand-lg navbar-light custom-navbar justify-content-center">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -37,7 +39,8 @@
                             <a class="nav-link custom-nav-link" href="#nosotros">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-nav-link" href="#" id="verCarrito">Ver Carrito <span id="carritoCantidad">0</span></a>
+                            <a class="nav-link custom-nav-link" href="#" id="verCarrito">Ver Carrito <span
+                                    id="carritoCantidad">0</span></a>
                         </li>
                     </ul>
                 </div>
@@ -51,10 +54,11 @@
 
             <div class="video-container mb-4">
                 <h2 class="video-title">Knitwear Lover</h2>
-                <iframe src="https://www.youtube.com/embed/1sqTG9rSJTk?si=yOTUlisG1SqYSLQ0" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/1sqTG9rSJTk?si=yOTUlisG1SqYSLQ0" frameborder="0"
+                    allowfullscreen></iframe>
             </div>
             <h2>Productos Destacados</h2>
-            
+
             <div id="carouselProductosDestacados" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -133,23 +137,22 @@
 
         <section id="contacto" class="section-contacto">
             <h2>Ante cualquier duda, háblanos</h2>
-            <form action="enviar_mensaje.php" method="post">
+            <form>
                 <fieldset>
                     <legend>Contacto</legend>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
-        
+
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
-        
+
                     <label for="mensaje">Mensaje:</label>
                     <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-        
+
                     <button type="submit">Enviar</button>
                 </fieldset>
             </form>
         </section>
-        
 
         <section id="nosotros" class="section-nosotros">
             <h2>Sobre Nosotros</h2>
@@ -162,5 +165,7 @@
     </footer>
 
 </body>
+
 </html>
+
 
