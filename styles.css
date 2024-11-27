@@ -174,7 +174,7 @@ footer {
 
 .section-productos .row {
     display: flex;
-    flex-direction: column;  /* Cambiar a columna para apilar las imágenes */
+    flex-direction: column;  
     justify-content: center;
     align-items: center;
 }
@@ -184,13 +184,13 @@ footer {
     flex-direction: column; 
     align-items: center; 
     text-align: center;
-    gap: 15px;  /* Espaciado entre la imagen, nombre y precio */
+    gap: 15px;
 }
 
 .available-product-item img {
     width: 100%; 
     height: auto;
-    max-width: 400px;  /* Limitar el ancho máximo de las imágenes */
+    max-width: 400px;  
     max-height: 400px; 
     object-fit: cover; 
 }
