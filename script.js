@@ -1,5 +1,5 @@
-import { Carrito } from './Carrito.js';
-import { Producto } from './Producto.js';
+import { Carrito } from './carrito.js';
+import { Producto } from './producto.js';
 
 // Crear una instancia del carrito
 let carrito = new Carrito();
