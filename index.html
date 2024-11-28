@@ -39,7 +39,9 @@
                             <a class="nav-link custom-nav-link" href="#nosotros">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-nav-link" href="#" id="verCarrito">Ver Carrito <span id="carritoCantidad">0</span></a>
+                            <a class="nav-link custom-nav-link" href="#carrito" id="verCarrito">
+                                Ver Carrito <span id="carritoCantidad">0</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -125,14 +127,18 @@
             </div>
         </section>
 
-        <section id="carrito" class="section-carrito" style="display:none;">
+        <div id="mensajeNotificacion" class="mensaje-notificacion" style="display: none;">
+            Producto agregado al carrito
+        </div>
+
+        <section id="carrito" class="hidden">
             <h2>Carrito</h2>
             <p id="carritoCantidad">0</p>
             <div id="carritoContenido"></div>
             <p>Total: $<span id="totalCarrito">0.00</span></p>
             <button id="vaciarCarrito">Vaciar carrito</button>
             <button id="finalizarCompra">Finalizar compra</button>
-    <p id="mensajeCompra"></p>
+            <p id="mensajeCompra"></p>
         </section>
 
         <section id="contacto" class="section-contacto">
@@ -160,6 +166,26 @@
         </section>
     </main>
 
+    <!-- Modal para mostrar mensaje de compra exitosa -->
+    <div class="modal fade" id="modalCompraExitosa" tabindex="-1" aria-labelledby="modalCompraExitosaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCompraExitosaLabel">Compra Exitosa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¡Gracias por tu compra! Tu pedido ha sido recibido con éxito.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Tienda de Tejidos. Todos los derechos reservados.</p>
     </footer>
@@ -167,5 +193,3 @@
 </body>
 
 </html>
-
-

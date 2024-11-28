@@ -195,7 +195,30 @@ footer {
     object-fit: cover; 
 }
 
+/* Clase para hacer visible el carrito */
+.visible {
+    display: block;
+}
+
+/* Clase para ocultar el carrito */
+.hidden {
+    display: none;
+}
+
 /* Estilos para el carrito */
+#carrito {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    z-index: 999;
+}
+
+/* Estilo del contenido dentro del carrito */
 #carritoContenido {
     margin-bottom: 20px;
 }
@@ -211,6 +234,7 @@ footer {
     font-size: 1.2em;
 }
 
+/* Botones dentro del carrito */
 #vaciarCarrito, #finalizarCompra {
     background: #F16D95;
     color: white;
@@ -224,6 +248,7 @@ footer {
     background: #db4672;
 }
 
+/* Estilo para los botones de "Agregar al carrito" */
 .agregar-carrito {
     background-color: #F16D95;
     color: #fff;
@@ -236,4 +261,19 @@ footer {
 
 .agregar-carrito:hover {
     background-color: #db4672;
+}
+
+/* Estilo para el mensaje de notificación */
+.mensaje-notificacion {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #db4672;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 999;
+    display: none; /* Inicialmente oculto */
 }
