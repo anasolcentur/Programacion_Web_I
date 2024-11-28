@@ -1,59 +1,94 @@
-// Importa la clase Carrito desde el archivo Carrito.js
-import { Carrito } from './Carrito.js';
+// Recuperar carrito del localStorage al cargar la página
+let carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Si no hay carrito, se inicializa como vacío
 
-// Crear una instancia del carrito
-let carrito = new Carrito();
-
-// Definición de productos disponibles
-let productos = [
-    { nombre: "Sweater Rainbow", precio: 15000, cantidad: 10 },
-    { nombre: "Sweater Molly", precio: 17000, cantidad: 10 },
-    { nombre: "Square Orange", precio: 20000, cantidad: 10 },
-    { nombre: "Square Blue", precio: 20000, cantidad: 10 },
-    { nombre: "Square Pink", precio: 20000, cantidad: 10 },
-    { nombre: "Square Red", precio: 20000, cantidad: 10 }
-];
-
-// Función para mostrar todos los productos disponibles
-function mostrarProductos() {
-    console.log("Productos disponibles:");
-    productos.forEach(producto => {
-        console.log(`${producto.nombre} - $${producto.precio}`);
-    });
-}
+// Elementos del DOM
+const carritoCantidad = document.getElementById('carritoCantidad');
+const carritoContenido = document.getElementById('carritoContenido');
+const verCarrito = document.getElementById('verCarrito');
+const carritoSection = document.getElementById('carrito');
+const vaciarCarrito = document.getElementById('vaciarCarrito');
+const finalizarCompra = document.getElementById('finalizarCompra');
+const mensajeCompra = document.getElementById('mensajeCompra');
 
 // Función para agregar productos al carrito
-function agregarAlCarrito(producto) {
-    carrito.agregarProducto(producto);
-    alert(`${producto.nombre} ha sido agregado al carrito.`);
-}
+document.querySelectorAll('.agregar-carrito').forEach(button => {
+    button.addEventListener('click', function() {
+        // Obtener nombre y precio del producto desde los elementos DOM
+        const productName = this.parentElement.querySelector('p').textContent;
+        const productPrice = parseFloat(this.parentElement.querySelector('p + p').textContent.replace('$', '').replace(',', '').trim());
 
-// Función para realizar la compra y obtener el nombre y correo del usuario
-function realizarCompra() {
-    // Entrada de datos con prompt para obtener nombre y correo
-    const nombre = prompt("Ingresa tu nombre:");
-    const email = prompt("Ingresa tu correo electrónico:");
+        // Buscar si el producto ya está en el carrito
+        let productoExistente = false;
+        carrito.forEach(item => {
+            if (item.name === productName) {
+                item.quantity++;  // Si existe, incrementar la cantidad
+                productoExistente = true;
+            }
+        });
 
-    // Validación simple para asegurar que el usuario ingresó ambos datos
-    if (nombre && email) {
-        console.log(`¡Gracias por tu compra, ${nombre}! Te hemos enviado un correo de confirmación a ${email}.`);
-        carrito.mostrarCarrito(); // Muestra el contenido del carrito
-        console.log(`El total de tu compra es: $${carrito.total}`);
-        alert(`¡Gracias por tu compra, ${nombre}! Te hemos enviado un correo de confirmación a ${email}.`);
+        // Si no existe, agregar el producto con cantidad 1
+        if (!productoExistente) {
+            carrito.push({ name: productName, price: productPrice, quantity: 1 });
+        }
+
+        // Guardar el carrito actualizado en localStorage
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+
+        // Actualizar la vista del carrito
+        actualizarCarrito();
+    });
+});
+
+// Actualiza el carrito en la vista
+function actualizarCarrito() {
+    carritoCantidad.textContent = carrito.length;
+
+    // Mostrar los productos en el carrito
+    carritoContenido.innerHTML = '';
+    let total = 0;
+    if (carrito.length === 0) {
+        carritoContenido.innerHTML = '<p>El carrito está vacío.</p>';
     } else {
-        alert("Por favor, completa ambos campos.");
+        carrito.forEach(item => {
+            total += item.price * item.quantity;
+            const div = document.createElement('div');
+            // Mostrar nombre, cantidad y precio correcto
+            div.innerHTML = `<span>${item.name} x${item.quantity}</span><span>$${(item.price * item.quantity).toFixed(2)}</span>`;
+            carritoContenido.appendChild(div);
+        });
     }
+
+    // Mostrar el total
+    document.getElementById('totalCarrito').textContent = total.toFixed(2);
 }
 
-// Agregar productos al carrito de ejemplo
-agregarAlCarrito(productos[0]);  // Agrega un producto al carrito
-agregarAlCarrito(productos[1]);  // Agrega otro producto al carrito
+// Ver carrito
+verCarrito.addEventListener('click', function() {
+    carritoSection.style.display = 'block';
+});
 
-// Muestra los productos disponibles
-mostrarProductos();
+// Vaciar carrito
+vaciarCarrito.addEventListener('click', function() {
+    carrito = [];
+    localStorage.setItem('carrito', JSON.stringify(carrito)); // Vaciar carrito en localStorage
+    actualizarCarrito();
+    carritoSection.style.display = 'none';
+});
 
-// Realiza la compra (esto sería una simulación)
-realizarCompra();
+// Finalizar compra (simulación)
+finalizarCompra.addEventListener('click', function() {
+    // Muestra un mensaje de éxito sin usar alert()
+    mensajeCompra.textContent = 'Gracias por tu compra!';
+    mensajeCompra.style.display = 'block';
 
+    carrito = [];
+    localStorage.setItem('carrito', JSON.stringify(carrito)); // Vaciar carrito en localStorage
+    actualizarCarrito();
+    carritoSection.style.display = 'none';
+});
 
-
+// Al cargar la página, recuperar el carrito desde localStorage
+document.addEventListener('DOMContentLoaded', function() {
+    carrito = JSON.parse(localStorage.getItem('carrito')) || []; // Recuperar el carrito o un array vacío
+    actualizarCarrito();
+});
