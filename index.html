@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    <script src="script.js" type="module" defer></script>
 </head>
 
 <body>
@@ -18,7 +20,8 @@
             <img src="img/AFTERGLOW_LOGO.png" alt="Logo Afterglow">
             <h1>Bienvenidos a Afterglow</h1>
             <nav class="navbar navbar-expand-lg navbar-light custom-navbar justify-content-center">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -35,10 +38,23 @@
                         <li class="nav-item">
                             <a class="nav-link custom-nav-link" href="#nosotros">Nosotros</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link" href="#carrito" id="verCarrito">
+                                Ver Carrito <span id="carritoCantidad">0</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </nav>
         </div>
+        <h1>Buscar Productos</h1>
+
+  <div class="search">
+    <input type="text" id="searchInput" placeholder="Ingresa el nombre de un producto" />
+    <button id="searchBtn">Buscar</button>
+  </div>
+
+  <div id="resultados"></div>
     </header>
 
     <main>
@@ -50,7 +66,7 @@
                 <iframe src="https://www.youtube.com/embed/1sqTG9rSJTk?si=yOTUlisG1SqYSLQ0" frameborder="0" allowfullscreen></iframe>
             </div>
             <h2>Productos Destacados</h2>
-            
+
             <div id="carouselProductosDestacados" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -88,6 +104,7 @@
                             <img src="img/Sweater_3 (Orange).jpeg" alt="Square Orange" class="img-fluid">
                             <p>Square Orange</p>
                             <p>$20000.00</p>
+                            <button class="agregar-carrito">Agregar al carrito</button>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -95,6 +112,7 @@
                             <img src="img/Sweater_4 (Blue).jpeg" alt="Square Blue" class="img-fluid">
                             <p>Square Blue</p>
                             <p>$20000.00</p>
+                            <button class="agregar-carrito">Agregar al carrito</button>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -102,6 +120,7 @@
                             <img src="img/Sweater_5 (Pink).jpeg" alt="Square Pink" class="img-fluid">
                             <p>Square Pink</p>
                             <p>$20000.00</p>
+                            <button class="agregar-carrito">Agregar al carrito</button>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4">
@@ -109,26 +128,41 @@
                             <img src="img/Sweater_6 (Red).jpeg" alt="Square Red" class="img-fluid">
                             <p>Square Red</p>
                             <p>$20000.00</p>
+                            <button class="agregar-carrito">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div id="mensajeNotificacion" class="mensaje-notificacion" style="display: none;">
+            Producto agregado al carrito
+        </div>
+
+        <section id="carrito" class="hidden">
+            <h2>Carrito</h2>
+            <p id="carritoCantidad">0</p>
+            <div id="carritoContenido"></div>
+            <p>Total: $<span id="totalCarrito">0.00</span></p>
+            <button id="vaciarCarrito">Vaciar carrito</button>
+            <button id="finalizarCompra">Finalizar compra</button>
+            <p id="mensajeCompra"></p>
+        </section>
+
         <section id="contacto" class="section-contacto">
             <h2>Ante cualquier duda, háblanos</h2>
-            <form action="enviar_mensaje.php" method="post">
+            <form>
                 <fieldset>
                     <legend>Contacto</legend>
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
-                    
+
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
-                    
+
                     <label for="mensaje">Mensaje:</label>
                     <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                    
+
                     <button type="submit">Enviar</button>
                 </fieldset>
             </form>
@@ -140,9 +174,30 @@
         </section>
     </main>
 
+    <!-- Modal para mostrar mensaje de compra exitosa -->
+    <div class="modal fade" id="modalCompraExitosa" tabindex="-1" aria-labelledby="modalCompraExitosaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCompraExitosaLabel">Compra Exitosa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¡Gracias por tu compra! Tu pedido ha sido recibido con éxito.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2024 Tienda de Tejidos. Todos los derechos reservados.</p>
     </footer>
 
 </body>
+
 </html>
