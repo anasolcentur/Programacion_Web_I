@@ -77,3 +77,17 @@ document.addEventListener('DOMContentLoaded', function() {
     carrito.actualizarCarrito();
 });
 
+// Función de búsqueda
+searchBtn.addEventListener('click', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const resultados = productos.filter(p => p.name.toLowerCase().includes(searchTerm));
+  
+    if (resultados.length > 0) {
+      renderizarProductos(resultados); // Renderizar los productos filtrados
+    } else {
+      resultadosDiv.innerHTML = '<p>No se encontraron productos</p>';
+    }
+  });
+  
+  // Inicializar los productos al cargar la página
+  renderizarProductos(productos);

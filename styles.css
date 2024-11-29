@@ -277,3 +277,63 @@ footer {
     z-index: 999;
     display: none; 
 }
+
+/* Estilos generales para los botones del carrito */
+#carritoContenido .btn {
+    margin-right: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  /* Botón de eliminar producto */
+  #carritoContenido .btn-danger {
+    background-color: #ff117c;
+    border-color: #ff117c;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  #carritoContenido .btn-danger:hover {
+    background-color: #ff2b98;
+    border-color: #ff2b98;
+  }
+  
+  /* Botones de aumentar y disminuir cantidad */
+  #carritoContenido .btn-warning {
+    background-color: #ff86b6;
+    border-color: #ff86b6;
+    color: #212529;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  #carritoContenido .btn-warning:hover {
+    background-color: #fa438c;
+    border-color: #fa438c;
+  }
+  
+  /* Asegurar que los botones tengan el mismo tamaño */
+  #carritoContenido .btn-sm {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  
+  /* Espaciado entre productos y botones */
+  #carritoContenido div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  #carritoContenido div span {
+    font-size: 16px;
+  }
+  
+  /* Para el texto del total del carrito */
+  #totalCarrito {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
