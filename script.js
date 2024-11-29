@@ -77,8 +77,38 @@ document.addEventListener('DOMContentLoaded', function() {
     carrito.actualizarCarrito();
 });
 
-// Función de búsqueda
-searchBtn.addEventListener('click', () => {
+// Función para renderizar los productos
+function renderizarProductos(productos) {
+    productosContenedor.innerHTML = ''; // Limpiar productos previos
+    productos.forEach(producto => {
+      const div = document.createElement('div');
+      div.classList.add('col-md-4', 'mb-4');
+      div.innerHTML = `
+        <div class="available-product-item text-center">
+          <img src="${producto.imgSrc}" alt="${producto.name}" class="img-fluid">
+          <p>${producto.name}</p>
+          <p>$${producto.price.toFixed(2)}</p>
+          <button class="agregar-carrito btn btn-primary" data-name="${producto.name}" data-price="${producto.price}" data-img="${producto.imgSrc}">Agregar al carrito</button>
+        </div>
+      `;
+      productosContenedor.appendChild(div);
+    });
+  
+    // Evento de agregar al carrito
+    document.querySelectorAll('.agregar-carrito').forEach(button => {
+      button.addEventListener('click', (event) => {
+        const name = event.target.dataset.name;
+        const price = parseFloat(event.target.dataset.price);
+        const imgSrc = event.target.dataset.img;
+        const producto = new Producto(name, price, imgSrc);
+        carrito.agregarProducto(producto);
+        carrito.actualizarCarrito();  // Actualizar el carrito
+      });
+    });
+  }
+  
+  // Función de búsqueda
+  searchBtn.addEventListener('click', () => {
     const searchTerm = searchInput.value.toLowerCase();
     const resultados = productos.filter(p => p.name.toLowerCase().includes(searchTerm));
   
